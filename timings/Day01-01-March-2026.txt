@@ -1,0 +1,7 @@
+what i did today:
+1) Today i have created my AWS login.
+2) I have done 30 mins coding which is 1st day task.
+3) while commiting into github i have faced a issue that was related to submodule and thats why my folder structure was not right so with the help of chat GPT i resolve that.
+
+Tomorrow's Task:
+1 hour coding and learn Linux.

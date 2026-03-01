@@ -42,3 +42,40 @@ spec:
        - containerPort: 80
 
 
+## Shell Script - Print Date & Hostname
+
+#!/bin/ bash
+echo "Date: $(date)"
+echo "Hostname: $(hostname)"
+
+
+#Git Integration
+## Jenkins Pipeline - checkout Git
+
+pipeline {
+    agent any
+    stages {
+        stage('checkout'){
+            steps {
+                git branch: 'main' , url: 'https://github.com/Pathnex/sample-java-app.git'
+        }
+    }
+    stage('List files') {
+        steps {
+            sh 'ls -la'
+           }
+        }
+    }
+}
+
+## GitLab CI - checkout Git
+  
+  stages: 
+       - checkout
+
+       git-checkout: 
+       stage: checkout 
+       script: 
+           -git clone   https://github.com/Pathnex/sample-java-app.git
+           - cd sample-java-app
+           - ls -la 

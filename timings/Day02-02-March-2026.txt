@@ -1,0 +1,13 @@
+What I did today:
+As in morning class Neeraj taught us about the configuration of EC2 instance in AWS so i practiced that.
+First of all we need to check the account ID and the region in which we are doing the configuration.
+so after checking all this i configure the EC2 instance. 
+Now its the time to check its reachability.
+First i tried to connect it directly with AWS and i was successful.
+after this i tried it to connect it through Gitbash it was also successful.
+3rd i tried to connect it through putty it was some triky. 
+As putty didnt take .pem file so first of all i changed .pem file to .pek file after this i was able to connect with Ec2 instance through public IP.
+
+#What i will do tomorrow:
+will try to complete coding practice.
+will perform linux command practice.

@@ -1,1 +1,16 @@
+---  (start of yaml files)
+- name: Install and start nginx on Pathnex  (its just telling what the playbook will do)
+  hosts: all
+  become: yes
 
+  tasks:
+      -name: Insatll nginx
+      yum: 
+        name: nginx 
+        state: present 
+
+    -name: Enable nginx 
+    service: 
+    name: nginx 
+    state: started 
+    enabled: yes

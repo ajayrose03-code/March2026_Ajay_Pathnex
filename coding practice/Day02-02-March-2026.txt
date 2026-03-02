@@ -1,2 +1,1 @@
-What i did today:
-As in morning class we learnt about the configuration of EC2 instance and i tried to configura EC2 instance in my AWS account. 
+

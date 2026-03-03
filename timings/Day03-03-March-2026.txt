@@ -1,0 +1,11 @@
+Hi Everyone, Today is 3rd of March and its my Birthday today, Thanks for your warm wishes.
+What i did today:
+Attended the morning class where i learned about the basic linux commands.
+So i will practice that during the day time.
+today we learnt about the difference between softlink and hard link 
+main difference is while we delete the main file in soft link then the copy of that link will not work.
+and in hardlink if main file is deleted even then the hardlink will work. there will be no impact on the hardlink.
+command for softlink: ln -s 
+command for hardlink: ln 
+When we need to edit the file we will run command vi pathnex after enetring in file press i to reach in insert mode.
+after that we can write our content in file and after this press esc key and then :wq to save the content.

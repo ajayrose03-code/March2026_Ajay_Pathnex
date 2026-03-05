@@ -1,0 +1,77 @@
+## Ansible - Handler to restart Nginx
+
+---
+-name: Mangae nginx
+hosts: all
+become: yes
+
+tasks:
+   -name: Update config file
+   copy:
+    src: index.html
+    dest: /usr/share/nginx/html/index.html
+    notify: Restart nginx
+
+hndlers: 
+    -name:restart Nginx
+    service: 
+    name: nginx
+    state: restarted
+
+
+## Tearraform - EC2 with User Date (c6a.12xlarge)
+
+resource "aws_instance"  "PathnexEC2" {
+      ami            = "ami-0123635abcdef"
+      instance_type  = "c6a.12xlarge"
+
+        user_data  = << EOF
+      #!/bin/bash
+      yum install -y  httpd
+      sysytemctl start httpd 
+      EOF
+
+        tags = {
+               name= "Pathnex- EC2"
+         }       
+    }
+
+    ## kubernetes - resource limits
+
+    apiversion: V1
+    kind: Pod
+    metadata:
+      name: pathnex-limited-pod 
+      spec:
+       container:
+          -name : app
+          image : nginx
+          resources:
+          limits:
+             memory: "256Mi"
+             CPU : "500"
+
+    
+
+# Day 05- Environment variables
+ you will learn hoe to ** use environment varibles in Jenkins Pipelines**
+
+ Pipeline {
+    agent any
+    environment {
+        INSTITUTE_NAME = "Pathnex"
+        }
+        stages {
+            stage ('Print') {
+                steps {
+                    sh 'echo "Welcome to $INSTITUTE_NAME Devops Training" 
+                }
+            }
+            stage ('Build') {
+                steps {
+                    sh 'mvn clean package - institute. name= $INSTITUTE_NAME'
+                }
+            }
+        }
+ }
+

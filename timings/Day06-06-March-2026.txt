@@ -1,0 +1,12 @@
+Day06 routine:
+
+1) wake up at 6:30 AM
+2) joined classes from Neeraj Bhai from 7 AM to 10 AM about Git
+3) Had lunch 10 AM to 12 PM 
+4) After 12 PM i start Learning - I was not able to connect my EC2 instance via VS code with the help of Chat GPT i did it.
+5) Followed Neeraj bhai class watching youtube and lear how to Push to GitHub from an EC2 Instance. follow all the steps and made clone from github to Ec2 instance.
+6) At 3 PM my went to freshen up and take some rest.
+7) At 5 PM i again start learning and this time i started my daily routine tasks writing code and my daily routine tasks.
+
+
+ 

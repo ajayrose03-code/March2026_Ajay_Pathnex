@@ -1,0 +1,24 @@
+Day 08:
+As today is Sunday so there was no morning class.
+so i planned to finish my daily routine work by writing the code.
+1) Starting from 12:00 PM I wrote Ansible — Install Packages Using Variables.
+                                            Terraform — Create VPC + Subnet
+		                            Kubernetes — Add Liveness & Readiness Probes
+		                            Shell Script — Loop Through List
+		                            Jenkins Pipeline — Conditional Execution
+		                            GitLab CI — Conditional jobs.
+2) Then i start learning about AWS cloud about: ELB Elastic load balancer
+                                                Difference between EC2 & Lambda
+						ClodFormation
+						Terraform
+						Ansible
+						IPs
+						Route table
+						VPC Pierring
+						How to connect two VPC
+						HUb and spoke model.
+                                         and its end up at 5:00 PM 
+
+
+		***Thank You***
+

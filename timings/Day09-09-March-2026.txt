@@ -1,0 +1,6 @@
+Day 09
+
+1) Today i learnt about S3, session management, Ports, Route53, TTl, cloud Trail, cloud watch.
+2) i woke up at 6:30 AM and join Neeraj bhai class at 7AM to 9:30 AM.
+3) After class over i had my lunch and start performing my daily routine taks of writing code at 12:00 PM.
+

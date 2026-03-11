@@ -1,0 +1,123 @@
+## Ansible - Install MariaDB
+
+
+---
+  - name: Install MariaDB for Pathnex
+    hosts : all
+    become: yes
+
+    tasks:
+       -name: Install MariaDB
+       yum:
+         name: mariadb-server
+	 state: present 
+
+   -name:  start mariaDB
+   service :
+      name: mariadb
+      state: started
+      enabled: yes
+
+
+
+## Terraform - output Publoic IP (r5.2xlarge)
+
+  resource "aws_instance"  "PathnexServer"  {
+
+     ami         	= "ami-0abcd12345abcd1234"
+     instance_type	= "r5.2xlarge"
+
+     tags = {
+
+       name= "Pathnex-output-EC2"
+      }
+    }
+
+    output "PathnexPublicIP" {
+         value = aws_instance.pathnexServer.Public_ip
+    }
+
+
+
+## Kubernetes - sidecar conatiner
+
+apiVersion: V1
+kind: Pod
+metadata: 
+
+   Name: Pathnex-sidecar
+ spec: 
+    conatiner:
+         -name: main
+	 image: nginx
+	 -name: sidecar
+	 image: busybox
+	 command: ["sh", "-c", "echo sidecar running; sleep 3600"]
+
+
+## shell script - Function Example
+
+#!/bin/bash
+
+greet ()  {
+   echo "welcome to pathnex Devops training"
+  }
+
+  greet
+
+
+
+## Jenkins Pipeline - Email Notifications
+
+pipeline {
+  agent any 
+  environment{
+      INSTITUTE_NAME = "Pathnex"
+      }
+      stages {
+         stage ('checkout'){
+	   steps {
+	     git url: 'https://github.com/pathnex/sample-java.app.git'
+	     }
+	   }
+	   stage ('Build') {
+	     steps {
+	        sh 'mvn clean package'
+		}
+	     }
+	 }
+     }
+      post {
+         success {
+	    mail to: 'team@pathnex.com',
+	       subject: "SUCCESS: Build #${env.BUILD_NUMBER}",
+	       body: "Build completed successfully for $INSTIITUE_NAME"
+	     }
+	     failure {
+	       mail to:  'team@pathnex.com',
+	          subject: "FAILURE: Build#${env.BUILD_NAME}",
+		  body: "Build failed for $INSTITUTE_NAME"
+	}
+     }
+  }
+    
+
+
+
+## GitLab CI- Notifications
+
+stages:
+  -build
+
+ build:  
+   stage: build
+   image: maven:3.8.1-jdk-17
+   script:
+     -git clone https;//github.com/Pathnex/sample-java-app.git
+     -cd sample-java-app
+     -mvn clean package
+   after_script:
+     -echo "sending notification email to team@pathnex.com"
+
+
+

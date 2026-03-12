@@ -1,0 +1,17 @@
+Day 10 routine: what i did
+
+1) day start with Morning class at 7 to 9 AM.
+2) 9 to 11 freshnup and lunch.
+3) 11 to 3 PM learned about auto scalling, Lambda, AWS shield, WAF and other topics covered in morning class
+4) 3 PM to 4 PM watch movie keeping TV mute and reading subtitles.
+5) 4 PM to 6 PM rest.
+6) 6 PM to 7 PM tea and walk.
+7) 7 PM to 8 PM prepare how to speak during meeting.
+8) 8 to 10 evening meeting.
+
+
+what i will do tomorrow:
+will finish AWS topics and revise it all.
+
+
+

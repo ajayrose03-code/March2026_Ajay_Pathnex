@@ -1,0 +1,107 @@
+## Ansible - Ensure file with Content
+
+---
+- name: Create confirg file for Pathnex
+hosts: all
+become: yes
+
+tasks:
+    -name: write content to file
+    copy:
+        dest: /etc/pathnex.config 
+        content : |
+            Welcome to Pathnex Devops Training 
+            Today is Day 12
+
+
+## Terraform - RDS skeleton
+
+resource "aws_db_instance" "Pathnex" {
+    allocated_storage   =20
+    engine              ="mysql"
+    instance_class      ="db.t3.micro"
+    name                ="Pathnex"
+    username            ="admin"
+    password            ="password123"
+    skip_final_snapshot = true
+}
+
+
+
+##Kubernetes- Rolling Update Strategy
+
+apiversion: apps/V1kind: Deploymentmetadata:
+    name: pathnex- Rolling
+spec: 
+replicas: 3
+strategy:
+ type: RollingUpdate
+ rollingupdate: 
+    maxSurge: 1
+    maxUnavailable: 1
+Selector:
+    matchLables:
+        app: roll 
+template:
+     metadata:
+       labels:
+          app: roll
+Spec:
+    container: 
+        -name: web
+        image: nginx
+
+
+## Shell script - Backup Directory
+
+#!/bin/bash
+SOURCE= "/var/log"
+DEST= "backup/pathnex-$(date+%F).tar.gz"
+
+tar -czf $DEST $SOURCE
+echo "Bacup created at : $DEST"
+
+
+# Multi-Branch Pipeline
+## Jenkins pipeline- Multi-Branch
+
+pipeline {
+        agent any
+        environment {
+            INSTITUE_NAME = "Pathnex"
+        }
+        stages {
+                stage ('Checkout') {
+                        steps {
+                            checkout scm
+                        }
+                }
+                stage ('Build') {
+                    steps {
+                        sh 'mvn clean compile'
+                    }
+                }
+        }
+}
+
+
+## GitLab CI- Branch specific Jobs
+stages:
+    -build
+
+build-main:
+ stage: build
+ image: maven:3.8.1-jdk-17
+ script:
+    -mvn clean compile
+only:
+    -main
+
+build-dev:
+  stage:build 
+  image: maven: 3.8.1-jdk-17
+  script:
+   -mvn clean compile
+only:
+   -dev
+   
